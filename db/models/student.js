@@ -11,14 +11,16 @@ const Student = db.define('student', {
   }
 });
 
-Student.addHook('beforeCreate', user => {
-  user.firstName =
-    user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1);
+Student.addHook('beforeCreate', student => {
+  student.firstName =
+    student.firstName.charAt(0).toUpperCase() + student.firstName.slice(1);
+  student.lastName =
+    student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1);
 });
 
-Student.addHook('beforeCreate', user => {
-  user.lastName =
-    user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1);
-});
+// Student.addHook('beforeCreate', user => {
+//   user.lastName =
+//     user.lastName.charAt(0).toUpperCase() + user.lastName.slice(1);
+// });
 
 module.exports = Student;
